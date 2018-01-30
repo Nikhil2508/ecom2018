@@ -1,0 +1,52 @@
+{% load static %}
+{% load socialaccount %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Hello, world!</title>
+
+    <!-- Bootstrap CSS -->
+
+      {% include 'base/css.html' %}
+
+
+  </head>
+  <body>
+    {% include "base/navbar.html" %}
+
+    {% block content %}
+    <div class="container-fluid">
+
+  <div class="row">
+{% for book in view.products %}
+<div class="col-xs-4">
+    {% include "products/single_product.html" with products=book%}
+  </div>
+{% cycle '' '' '' '</div><div class="row">'%}
+{% endfor %}
+</div>
+
+</div>
+
+    {% endblock %}
+    </div>
+
+    {% include 'base/js.html' %}
+
+    <script type="text/javascript">
+
+
+    </script>
+        <!-- <script  src="base/index.js"></script> -->
+
+    {% block javascript %}
+
+    {% endblock %}
+  </body>
+</html>

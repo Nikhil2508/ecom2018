@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.google',
 
+    'products'
+
 
 ]
 
@@ -147,9 +149,21 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+MEDIA_URL = '/media/'
+
 STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, "static"),
+# '/var/www/static/',
+]
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media-cdn")
+
+#Crispy FORM TAGs SETTINGS
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
